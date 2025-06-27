@@ -9,7 +9,7 @@ def projeto_index(request):
         'projetos': projetos
     }
 
-    return render(request, 'projeto_index.html', context)
+    return render(request, 'projetos/projeto_index.html', context)
 
 def projeto_detalhe(request, pk):
     projeto = Projeto.objects.get(pk = pk)
@@ -17,4 +17,4 @@ def projeto_detalhe(request, pk):
         'projeto': projeto
     }
 
-    return render(request, 'projeto_detalhe.html', context)
+    return render(request, 'projetos/projeto_detalhe.html', context)
