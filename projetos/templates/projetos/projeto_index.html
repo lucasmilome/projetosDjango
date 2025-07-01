@@ -4,7 +4,7 @@
   {% for projeto in projetos %}
   <div class="col-md-4">
     <div class="card mb-2">
-      <img class="card-img-to" src="{% static projeto.imagem %}" alt="" />
+      <img class="card-img-to" src="{{ projeto.imagem.url }}" alt="" />
       <div class="card-body">
         <h5 class="card-title">{{ projeto.titulo }}</h5>
         <p class="card-text">{{ projeto.descricao }}</p>

@@ -2,9 +2,12 @@
 <h1>{{ projeto.titulo }}</h1>
 <div class="row">
   <div class="col-md-6">
-    <div class="card mb-2">
-      <img class="card-img-to" src="{% static projeto.imagem %}" alt="" />
-    </div>
+    <img
+      class="card-img-to"
+      src="{{ projeto.imagem.url }}"
+      alt="Imagem ampliada do projeto"
+      width="100%"
+    />
   </div>
   <div class="col-md-4">
     <h5>Sobre o projeto:</h5>
