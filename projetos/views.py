@@ -5,8 +5,11 @@ from projetos.models import Projeto
 
 def projeto_index(request):
     projetos = Projeto.objects.all()
+    quantidade = projetos.count()
+
     context = {
-        'projetos': projetos
+        'projetos': projetos,
+        'quantidade': quantidade,
     }
 
     return render(request, 'projetos/projeto_index.html', context)
