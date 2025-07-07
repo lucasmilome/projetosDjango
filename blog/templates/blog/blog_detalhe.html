@@ -1,0 +1,15 @@
+{% extends 'blog_base.html' %}
+
+{% block page_title %}
+<h3>{{ postagem.titulo }}</h3>
+{% endblock page_title %} 
+
+{% block page_content %}
+<small>
+  {{ postagem.criado_em.date }} | Categorias: 
+  {% for categoria in postagem.categorias.all %}
+  <a href="{% url 'blog_categoria' categoria.nome %}">{{ categoria.nome }}</a>
+  {% endfor %}
+</small>
+<p>{{ postagem.corpo | linebreaks }}</p>
+{% endblock page_content %}

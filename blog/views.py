@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from blog.models import Postagem, Categoria
+from blog.models import Postagem, Comentario
 
 # Create your views here.
 def blog_index(request):
@@ -22,3 +22,14 @@ def blog_categoria(request, categoria):
     }
     
     return render(request, 'blog/blog_categoria.html', context)
+
+def blog_detalhe(request, pk):
+    postagem = Postagem.objects.get(pk=pk)
+    comentarios = Comentario.objects.filter(postagem=postagem)
+
+    context = {
+        'postagem': postagem,
+        'comentarios': comentarios,
+    }
+
+    return render(request, 'blog/blog_detalhe.html', context)

@@ -1,13 +1,20 @@
-{% extends 'base.html' %} {% block page_content %} {% block posts %} {% for
-postagem in postagens %}
+{% extends 'blog_base.html' %} 
+
+{% block page_title %}
+<h2>Postagens do blog</h2>
+{% endblock page_title %} 
+
+{% block page_content %} 
+{% block posts %} 
+{% for postagem in postagens %}
 <h3>
-  <a href="{% url 'blog.blog_detalhe' postagem.pk %}">
+  <a href="{% url 'blog_detalhe' postagem.pk %}">
     {{ postagem.titulo }}
   </a>
 </h3>
 <small>
-  {{ postagem.criado_em.date }} | Categorias: {% for categoria in
-  postagem.categorias.all %}
+  {{ postagem.criado_em.date }} | Categorias: 
+  {% for categoria in postagem.categorias.all %}
   <a href="{% url 'blog_categoria' categoria.nome %}"> {{ categoria.nome }} </a>
   {% endfor %}
 </small>
