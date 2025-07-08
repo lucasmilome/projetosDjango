@@ -4,7 +4,7 @@
 <h2>Postagens do blog</h2>
 {% endblock page_title %} 
 
-{% block page_content %} 
+{% block blog_page_content %} 
 {% block posts %} 
 {% for postagem in postagens %}
 <h3>
@@ -19,4 +19,6 @@
   {% endfor %}
 </small>
 <p>{{ postagem.corpo | slice:':400' }}...</p>
-{% endfor %} {% endblock posts %} {% endblock page_content %}
+{% endfor %} 
+{% endblock posts %} 
+{% endblock blog_page_content %}

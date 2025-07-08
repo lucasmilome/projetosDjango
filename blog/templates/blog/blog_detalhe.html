@@ -4,7 +4,7 @@
 <h3>{{ postagem.titulo }}</h3>
 {% endblock page_title %} 
 
-{% block page_content %}
+{% block blog_page_content %}
 <small>
   {{ postagem.criado_em.date }} | Categorias: 
   {% for categoria in postagem.categorias.all %}
@@ -12,4 +12,22 @@
   {% endfor %}
 </small>
 <p>{{ postagem.corpo | linebreaks }}</p>
-{% endblock page_content %}
+<h3>Deixe um comentário</h3>
+
+<form method="post">
+  {% csrf_token %}
+  <div class="mb-3">
+    {{ form.autor }}
+  </div>
+  <div class="mb-3">
+    {{ form.corpo }}
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+<h3 style="margin-top: 20">Comentários:</h3>
+{% for comentario in comentarios %}
+<p>Em {{ comentario.criado_em }} <b>{{ comentario.autor }}</b> </p>
+<p>{{ comentario.corpo | linebreaks }}</p>
+{%endfor%}
+{% endblock blog_page_content %}
