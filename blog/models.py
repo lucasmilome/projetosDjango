@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Categoria(models.Model):
-    nome = models.CharField(verbose_name='Nome Categoria', max_length=20)
+    nome = models.CharField(verbose_name='Nome Categoria', max_length=60)
    
     def __str__(self):
         return self.nome

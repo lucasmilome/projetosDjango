@@ -4,7 +4,7 @@ from blog.models import Postagem, Comentario, Categoria
 # Register your models here.
 @admin.register(Postagem)
 class PostagemAdmin(admin.ModelAdmin):
-   pass
+   list_display = ('titulo', 'criado_em', 'ultima_modificacao')
 
    
 @admin.register(Comentario)

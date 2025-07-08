@@ -4,7 +4,7 @@ from projetos.models import Projeto
 # Create your views here.
 
 def projeto_index(request):
-    projetos = Projeto.objects.all()
+    projetos = Projeto.objects.filter(publicado=True)
     quantidade = projetos.count()
 
     context = {
