@@ -37,7 +37,7 @@ class RegisterForm(forms.Form):
             }
         ),
     )
-    email = forms.EmailInput(
+    email = forms.EmailField(
         label='E-mail',
         required=True,
         max_length = 100,
@@ -48,7 +48,7 @@ class RegisterForm(forms.Form):
             }
         ),
     )
-    password = forms.PasswordInput(
+    password = forms.CharField(
         label='Senha',
         required=True,
         max_length=80,
@@ -59,7 +59,7 @@ class RegisterForm(forms.Form):
             }
         ),
     )
-    reenter_password = forms.PasswordInput(
+    reenter_password = forms.CharField(
         label='Confirme a senha',
         required=True,
         max_length=80,
