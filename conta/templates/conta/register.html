@@ -18,6 +18,11 @@
         <div>
             <form action="{% url 'register' %}" method="post">
                 {% include 'conta/partials/_form-fields.html' %}
+                {% if message in messages %}
+                <div class="alert alert-{{ message.tag }}">
+                    {{ message }}
+                </div>
+                {% endif %}
                 <div class="col-12 text-center pt-3">
                     <button class="btn btn-success col-12" type="submit">Cadastrar</button>
                 </div>
