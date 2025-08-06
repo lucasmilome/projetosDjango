@@ -12,26 +12,26 @@ def login(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
 
-    if form.is_valid():
-        nome_usuario = form["login"].value().strip()
-        senha = form["password"].value().strip()
+        if form.is_valid():
+            nome_usuario = form["login"].value().strip()
+            senha = form["password"].value().strip()
 
-        if nome_usuario == "" or senha == "":
-            messages.error(request, "Todos os campos são obrigatórios!")
-            return render(request, "conta/login.html", {"form": form})
+            if nome_usuario == "" or senha == "":
+                messages.error(request, "Todos os campos são obrigatórios!")
+                return render(request, "conta/login.html", {"form": form})
 
-        credenciais_usuario = auth.authenticate(
-            request,
-            username=nome_usuario,
-            password=senha,
-        )
+            credenciais_usuario = auth.authenticate(
+                request,
+                username=nome_usuario,
+                password=senha,
+            )
 
-        if credenciais_usuario == None:
-            messages.error(request, "Login falho! Tente novamente")
-            return render(request, "conta/login.html", {"form": form})
+            if credenciais_usuario == None:
+                messages.error(request, "Login falho! Tente novamente")
+                return render(request, "conta/login.html", {"form": form})
 
-        auth.login(request, credenciais_usuario)
-        return redirect("projeto_index")
+            auth.login(request, credenciais_usuario)
+            return redirect("projeto_index")
 
     return render(request, "conta/login.html", {"form": form})
 
