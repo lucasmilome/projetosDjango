@@ -18,6 +18,15 @@
         <div>
             <form action="{% url 'login' %}" method="post">
                 {% include 'conta/partials/_form-fields.html' %}
+                {% if messages %}
+                <div>
+                    {% for message in messages %}
+                    <div class="alert alert-{{message.tags}}" role="alert">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
                 <div class="col-12 text-center pt-3">
                     <button class="btn btn-success col-12" type="submit">Entrar</button>
                 </div>
