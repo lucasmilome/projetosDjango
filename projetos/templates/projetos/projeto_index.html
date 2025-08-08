@@ -11,7 +11,7 @@
       {% endif %}
       <div class="card-body">
         <h5 class="card-title">{{ projeto.titulo }}</h5>
-        <p class="card-text">{{ projeto.descricao | slice:':60' }} </p>
+        <p class="card-text">{{ projeto.descricao | slice:':60' }}</p>
         <a
           class="btn btn-primary"
           href="{% url 'projeto_detalhe' projeto.pk %}"
@@ -23,4 +23,4 @@
   </div>
   {% endfor %}
 </div>
-{% endblock %}
+{% endblock page_content %}

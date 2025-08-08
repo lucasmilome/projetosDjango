@@ -9,6 +9,9 @@ from django.contrib import messages
 def login(request):
     form = LoginForm()
 
+    if request.user.is_authenticated:
+        return redirect("projeto_index")
+
     if request.method == "POST":
         form = LoginForm(request.POST)
 
@@ -34,6 +37,11 @@ def login(request):
             return redirect("projeto_index")
 
     return render(request, "conta/login.html", {"form": form})
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect("login")
 
 
 def register(request):
